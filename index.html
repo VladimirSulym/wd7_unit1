@@ -65,5 +65,51 @@
             </select><br><br>
             <textarea name="123" id="12" cols="300" rows="10"></textarea>
         </form>
+
+    <br><br>
+    <input type="button" value="Нажми меня" onclick="let a = 100500; console.log(`Press but`, a);">
+        <br>
+    <button id="But2">Кнопка 2</button><br><br>
+
+        <div id="Div1" style="padding: 40px; background-color: cadetblue;">
+            <div id="Div2" style="padding: 40px; background-color: #76a05f;">
+                <a id="Link1" href="https://ya.ru">Перейти на сайт</a><br>.
+                <div id="Div3" style="padding: 40px; background-color: #cf6921;">
+                    <button id="But3">Кнопка 3</button>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        let btn = document.getElementById(`But2`);
+
+        btn.onclick = handlBut2;
+
+            function handlBut2 (e) {
+                console.log(`Press but 2`,e);
+            };
+        document.getElementById('But3').addEventListener('click', handleBut5Click);
+
+        document.getElementById('Div1').addEventListener('click', handleDivClick, true);
+        document.getElementById('Div2').addEventListener('mouseout', handleDivClick);
+        document.getElementById('Div3').addEventListener('mouseover', handleDivClick, false);
+
+        document.getElementById('Link1').addEventListener('click', handleLinkClick);
+
+        function handleBut5Click (e) {
+           // e.stopImmediatePropagation();
+            console.log(`Press but 3`,e);
+        }
+
+        function handleDivClick (e) {
+            console.log(`Press DIV`,e.target, e.currentTarget);
+        }
+
+        function handleLinkClick (e) {
+            e.preventDefault();
+            console.log(`Press Link1`,e.target, e.currentTarget);
+        }
+
+    </script>
     </body>
     </html>
